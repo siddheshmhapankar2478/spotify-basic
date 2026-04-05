@@ -8,6 +8,9 @@ app.use("/api/auth", authRoutes);
 const musicRoutes = require("./routes/music.routes");
 app.use("/api/music", musicRoutes);
 
+const albumRoutes = require("./routes/album.routes");
+app.use("/api/album", albumRoutes);
+
 const connectDb = require("./db/db");
 connectDb();
 
