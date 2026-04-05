@@ -10,9 +10,10 @@ const {
   getMusicList,
   createMusic,
 } = require("../controllers/music.controllers");
+const { authArtist, authUser } = require("../middlewares/auth.middleware");
 
-router.get("/list", getMusicList);
+router.get("/list", authUser, getMusicList);
 
-router.post("/create", upload.single("music"), createMusic);
+router.post("/create", authArtist, upload.single("music"), createMusic);
 
 module.exports = router;
